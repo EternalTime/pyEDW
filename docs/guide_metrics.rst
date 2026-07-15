@@ -2,9 +2,10 @@ Guide: metrics
 ==============
 
 :mod:`pyEDW.metrics` turns an endpoint ensemble into viability and the
-information measures of Section 4. The pipeline is: histogram the joint
-distribution :math:`p_{AE}(f_B, f_W, T, L)` at each luminosity, tabulate the
-entropies of every marginal, then combine them.
+information measures of Section 4 of the paper\ :footcite:`sowinski2025exo`.
+The pipeline is: histogram the joint distribution
+:math:`p_{AE}(f_B, f_W, T, L)` at each luminosity, tabulate the Shannon
+entropies\ :footcite:`shannon1948` of every marginal, then combine them.
 
 Entropy table
 -------------
@@ -48,3 +49,8 @@ Interpreting the signs
 temperature--luminosity correlation; :math:`\Delta I < 0` means it loosens it.
 Negative :math:`C(a_1{:}a_2\|E)` indicates the environment synergistically
 enhances the correlation between the two daisy species.
+
+References
+^^^^^^^^^^
+
+.. footbibliography::

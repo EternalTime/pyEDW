@@ -3,8 +3,9 @@ Guide: the model
 
 :class:`~pyEDW.model.Parameters` holds the physical constants of Table 1 and
 builds the dimensionless ``theta`` vector consumed by the integrator.
-:class:`~pyEDW.model.ExoDaisyWorld` wraps the compiled SRK1 step behind a small
-stateful interface that keeps the MATLAB usage.
+:class:`~pyEDW.model.ExoDaisyWorld` wraps the compiled SRK1
+step\ :footcite:`roberts2012` behind a small stateful interface that keeps the
+MATLAB usage.
 
 Parameters
 ----------
@@ -61,3 +62,8 @@ Reproducing the original runs
 The original MATLAB drivers and figure scripts ship under ``pyEDW/matlab/`` for
 reference, and ``validate_against_matlab.py`` checks a Python ensemble against a
 saved ``data_*.mat``.
+
+References
+^^^^^^^^^^
+
+.. footbibliography::
