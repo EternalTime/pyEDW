@@ -14,7 +14,7 @@ is the coupled agent (daisies) + environment (temperature, luminosity) SDE,
 integrated with a strong-order-1 stochastic Runge–Kutta step; `pyEDW.metrics`
 turns an endpoint ensemble into viability and the information measures I(A:E),
 ΔI, and cooperation C(a₁:a₂‖E). The model and its informational reading are in
-Sowinski, Ghoshal & Frank, *Planet. Sci. J.* **6**, 176 (2025).
+Sowinski et al, *Planet. Sci. J.* **6**, 176 (2025).
 
 This is a Python port of the original MATLAB classes, whose interface it keeps.
 The original `.m` files ship under `pyEDW/matlab/` for reference.
