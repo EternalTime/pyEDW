@@ -78,8 +78,27 @@ fig.savefig("fig1.png", dpi=150)
 `validate_against_matlab.py` loads a `data_*.mat` produced by the original
 `eDW_BHsim.m`, reruns the Python ensemble at the same bandwidth and luminosity
 axis, and compares the mean temperature, luminosity, and viability curves. The
-pytest suite (`pytest`) additionally checks the SRK1 step bit-for-bit against
-an independent re-derivation of the MATLAB update.
+pytest suite additionally checks the SRK1 step bit-for-bit against an
+independent re-derivation of the MATLAB update. It needs the `test` extra:
+
+```
+source .venv/bin/activate
+pip install -e ".[test]"
+pytest
+```
+
+## Documentation
+
+The full documentation is at <https://damiansowinski.com/pyEDW/>; its
+[Getting started](https://damiansowinski.com/pyEDW/getting_started.html) page
+is the authority on installation. To build it locally:
+
+```
+source .venv/bin/activate
+pip install -e ".[docs]"
+cd docs
+make html
+```
 
 ## License
 
