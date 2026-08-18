@@ -73,3 +73,31 @@ Reading the information architecture
 
 See :doc:`guide_metrics` for what each measure means and :doc:`theory` for the
 equations behind them.
+
+Running the tests
+-----------------
+
+The test suite needs ``pytest``, which ships in the ``test`` extra. From the
+clone, with the environment created above activated:
+
+.. code-block:: bash
+
+   source .venv/bin/activate
+   pip install -e ".[test]"
+   pytest
+
+Building the documentation
+--------------------------
+
+This site is built with Sphinx from ``docs/``. The ``docs`` extra pulls in
+Sphinx, the Read the Docs theme, and ``sphinxcontrib-bibtex`` for the
+bibliography:
+
+.. code-block:: bash
+
+   source .venv/bin/activate
+   pip install -e ".[docs]"
+   cd docs
+   make html
+
+The rendered HTML lands in ``docs/_build/html``.
