@@ -1,23 +1,21 @@
 # pyEDW
 
-pyEDW runs Exo-Daisy World: a stochastic generalization of Watson &
-Lovelock's Daisy World, tuned to M-dwarf exoplanets, together with the
-information-theoretic measures used to read off its *information architecture*.
-A planet of habitable fraction `f` is shared by black and white daisies whose
-albedos rein the surface temperature; the star's luminosity drifts as an
-Ornstein–Uhlenbeck process, and because the thermal timescale is comparable to
-the stellar one, the classic model's instantaneous-equilibrium constraint is
-broken and the system becomes a genuine stochastic differential equation.
+pyEDW runs Exo-Daisy World, a stochastic generalization of Watson & Lovelock's
+Daisy World tuned to M-dwarf exoplanets, with the measures that read off its
+*information architecture*. Black and white daisies share a planet of habitable
+fraction `f`, their albedos reining the surface temperature, while the star's
+luminosity drifts as an Ornstein–Uhlenbeck process. The thermal timescale is
+comparable to the stellar one, so the classic model's instantaneous-equilibrium
+constraint breaks and the system becomes a genuine stochastic differential
+equation.
 
-The library ships one environment class and a metrics module. `ExoDaisyWorld`
-is the coupled agent (daisies) + environment (temperature, luminosity) SDE,
-integrated with a strong-order-1 stochastic Runge–Kutta step; `pyEDW.metrics`
-turns an endpoint ensemble into viability and the information measures I(A:E),
-ΔI, and cooperation C(a₁:a₂‖E). The model and its informational reading are in
-Sowinski et al, *Planet. Sci. J.* **6**, 176 (2025).
-
-This is a Python port of the original MATLAB classes, whose interface it keeps.
-The original `.m` files ship under `pyEDW/matlab/` for reference.
+`ExoDaisyWorld` integrates that agent (daisies) plus environment (temperature,
+luminosity) SDE with a strong-order-1 stochastic Runge–Kutta step, and
+`pyEDW.metrics` turns an endpoint ensemble into viability and the measures
+I(A:E), ΔI, and cooperation C(a₁:a₂‖E). Both come from Sowinski et al, *Planet.
+Sci. J.* **6**, 176 (2025), where the derivations live. The library ports the
+original MATLAB classes and keeps their interface; the `.m` files ship under
+`pyEDW/matlab/`.
 
 ## Installation
 
@@ -30,12 +28,11 @@ python -m pip install --upgrade pip
 pip install -e .
 ```
 
-Requires Python 3.8+; numpy, scipy, numba, and matplotlib are installed
-automatically. The integrator hot loop is JIT-compiled by Numba on first call.
+Requires Python 3.8+; numpy, scipy, numba, and matplotlib come along with it.
 
 ## Quick start
 
-Seed a planet with a few daisies at one luminosity and integrate it:
+Seed a planet at one luminosity and integrate it:
 
 ```python
 import numpy as np
@@ -46,8 +43,7 @@ env = ExoDaisyWorld(p, rng=np.random.default_rng(0))
 fB, fW, T, L = env.run(2000)                  # endpoint [f_B, f_W, T, L]
 ```
 
-Sweep the stellar luminosity to build an ensemble, then read its information
-architecture:
+Sweep the luminosity for an ensemble, then read its information architecture:
 
 ```python
 from pyEDW import metrics
@@ -76,11 +72,10 @@ fig.savefig("fig1.png", dpi=150)
 
 ## Validation
 
-`validate_against_matlab.py` loads a `data_*.mat` produced by the original
-`eDW_BHsim.m`, reruns the Python ensemble at the same bandwidth and luminosity
-axis, and compares the mean temperature, luminosity, and viability curves. The
-pytest suite additionally checks the SRK1 step bit-for-bit against an
-independent re-derivation of the MATLAB update. It needs the `test` extra:
+`validate_against_matlab.py` reruns a Python ensemble against a `data_*.mat`
+from the original `eDW_BHsim.m`, comparing the mean temperature, luminosity, and
+viability curves. The pytest suite also checks the SRK1 step bit-for-bit against
+an independent re-derivation of the MATLAB update; it needs the `test` extra:
 
 ```
 source .venv/bin/activate
@@ -90,9 +85,9 @@ pytest
 
 ## Documentation
 
-The full documentation is at <https://damiansowinski.com/pyEDW/>; its
-[Getting started](https://damiansowinski.com/pyEDW/getting_started.html) page
-is the authority on installation. To build it locally:
+Documentation lives at <https://damiansowinski.com/pyEDW/>; its
+[Getting started](https://damiansowinski.com/pyEDW/getting_started.html) page is
+the authority on installation. To build it locally:
 
 ```
 source .venv/bin/activate

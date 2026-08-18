@@ -4,15 +4,15 @@ Theory
 The dimensionless model
 -----------------------
 
-Watson & Lovelock's 1983 Daisy World\ :footcite:`watson1983` was
-deterministic — a planet held in thermal equilibrium at every instant. Here we keep the daisies but break that
-constraint: the star flickers, the temperature lags, and the model becomes a
-four-degree-of-freedom stochastic differential equation for the black- and
-white-daisy fractions :math:`f_B, f_W` (the biotic *agent*) coupled to the
+Watson & Lovelock's 1983 Daisy World\ :footcite:`watson1983` was deterministic:
+a planet held in thermal equilibrium at every instant. We keep the daisies and
+break that constraint. The star flickers, the temperature lags, and the model
+becomes a four-degree-of-freedom stochastic differential equation for the black-
+and white-daisy fractions :math:`f_B, f_W` (the biotic *agent*) coupled to the
 planetary temperature :math:`T` and stellar luminosity :math:`L` (the
 *environment*). In the dimensionless form of Appendix B of Sowinski, Ghoshal &
-Frank (2025) — temperature in units of the optimal temperature :math:`T_{opt}`,
-luminosity in units of :math:`L_{opt}` — we write
+Frank (2025) - temperature in units of the optimal temperature :math:`T_{opt}`,
+luminosity in units of :math:`L_{opt}` - we write
 
 .. math::
 
@@ -36,7 +36,7 @@ and the scaled daisy temperatures
 
 The luminosity is the only noisy dof, an Ornstein--Uhlenbeck
 process\ :footcite:`uhlenbeck1930` with mean :math:`1+\lambda`, so the driving
-Wiener process is scalar. This is what lets
+Wiener process is scalar. That is what lets
 :class:`~pyEDW.model.ExoDaisyWorld` use the strong-order-1 stochastic
 Runge--Kutta scheme of A. Roberts (2012)\ :footcite:`roberts2012`; the step is
 a line-for-line port of ``updateExoDaisyWorld.m``.
@@ -45,20 +45,19 @@ Rein control
 ------------
 
 Because :math:`A_B < A_G < A_W`, black daisies warm their surroundings and
-white daisies cool them. As the star brightens, the population mix shifts from
-black to white, adjusting the planetary albedo :math:`A = A_G + \sum_\alpha
-(A_\alpha - A_G) f_\alpha` so that the surface temperature is held near
-:math:`T_{opt}` across a wide band of luminosities — the Gaian *rein control*
-mechanism.
+white daisies cool them. As the star brightens the mix shifts from black to
+white, adjusting the planetary albedo :math:`A = A_G + \sum_\alpha
+(A_\alpha - A_G) f_\alpha` so that the surface temperature stays near
+:math:`T_{opt}` across a wide band of luminosities. This is Gaian *rein
+control*.
 
 The information architecture
 ----------------------------
 
 We partition the system into agent :math:`a = (f_B, f_W)` and environment
-:math:`e = (T, L)`, in the spirit of the semantic-information program of
-Kolchinsky & Wolpert\ :footcite:`kolchinsky2018`, and read the coevolution off
-a corpus of information measures estimated from the joint distribution
-:math:`p_{AE}` (Section 4):
+:math:`e = (T, L)`, in the spirit of Kolchinsky & Wolpert's semantic-information
+program\ :footcite:`kolchinsky2018`, and read the coevolution off information
+measures estimated from the joint distribution :math:`p_{AE}` (Section 4):
 
 - **Viability** :math:`V = \mathbb{E}^A[(f_B+f_W)/f]` (Eq. 9), the expected
   occupied fraction of the habitable area.
@@ -71,13 +70,13 @@ a corpus of information measures estimated from the joint distribution
   synergy mediated by the environment.
 
 We estimate every entropy by histogramming, with the square-root binning rule
-:math:`N_{bins} = 1 + \lceil\sqrt{n}\rceil` — the same rule used in Appendix B.3.
+:math:`N_{bins} = 1 + \lceil\sqrt{n}\rceil` of Appendix B.3.
 
-Everything on this page is compressed from `Exo-Daisy World: Revisiting Gaia
-Theory through an Informational Architecture Perspective
+This page compresses `Exo-Daisy World: Revisiting Gaia Theory through an
+Informational Architecture Perspective
 <https://damiansowinski.com/assets/docs/papers/ExoDaisy_Sowinski_2025.pdf>`_
 (Sowinski, Ghoshal & Frank, *Planet. Sci. J.* **6**, 176,
-2025)\ :footcite:`sowinski2025exo`, which is where the derivations live.
+2025)\ :footcite:`sowinski2025exo`, where the derivations live.
 
 References
 ^^^^^^^^^^
