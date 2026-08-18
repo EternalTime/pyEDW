@@ -16,6 +16,12 @@ turns an endpoint ensemble into viability and the information measures I(A:E),
 ΔI, and cooperation C(a₁:a₂‖E). The model and its informational reading are in
 Sowinski et al, *Planet. Sci. J.* **6**, 176 (2025).
 
+Note that each daisy species grows at its own temperature (Eq. 1): `f_B` is
+driven by `w(T_B - 1)` and `f_W` by `w(T_W - 1)`. The published appendix
+(Eqs. B1–B2, B8–B9) prints these subscripts swapped; that is a typo, and
+following it drives the black daisies extinct at every luminosity. pyEDW
+implements Eq. (1) and the original MATLAB.
+
 This is a Python port of the original MATLAB classes, whose interface it keeps.
 The original `.m` files ship under `pyEDW/matlab/` for reference.
 

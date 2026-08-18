@@ -38,6 +38,15 @@ Stepping and running
 The state is ``[f_B, f_W, T, L]``. Daisy fractions are clamped non-negative
 after every step, as in the MATLAB.
 
+.. note::
+
+   Each daisy species grows at its own temperature (Eq. 1): :math:`f_B` is
+   driven by :math:`w(T_B - 1)` and :math:`f_W` by :math:`w(T_W - 1)`. The
+   published appendix (Eqs. B1--B2, B8--B9) prints these subscripts swapped;
+   that is a typo, and following it drives the black daisies extinct at every
+   luminosity. pyEDW implements Eq. (1) and the original MATLAB. See
+   :doc:`theory` for the equations.
+
 Ensembles
 ---------
 

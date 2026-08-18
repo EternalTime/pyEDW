@@ -41,6 +41,17 @@ Wiener process is scalar. This is what lets
 Runge--Kutta scheme of A. Roberts (2012)\ :footcite:`roberts2012`; the step is
 a line-for-line port of ``updateExoDaisyWorld.m``.
 
+.. note::
+
+   Each species grows at *its own* temperature: :math:`f_B` is driven by
+   :math:`w(T_B - 1)` and :math:`f_W` by :math:`w(T_W - 1)`, as in Eq. (1) of
+   the paper. The published appendix (Eqs. B1--B2 and B8--B9) prints these two
+   subscripts the other way round, which is a typographical slip: feeding each
+   species the *other's* temperature drives the black daisies extinct at every
+   luminosity, since they would then flourish only where the planet is already
+   too hot for them. pyEDW follows Eq. (1) and the original MATLAB, and
+   reproduces Fig. 1 — black daisies dominant at low luminosity, white at high.
+
 Rein control
 ------------
 
