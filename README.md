@@ -12,10 +12,10 @@ equation.
 `ExoDaisyWorld` integrates that agent (daisies) plus environment (temperature,
 luminosity) SDE with a strong-order-1 stochastic Runge–Kutta step, and
 `pyEDW.metrics` turns an endpoint ensemble into viability and the measures
-I(A:E), ΔI, and cooperation C(a₁:a₂‖E). Both come from Sowinski et al, *Planet.
-Sci. J.* **6**, 176 (2025), where the derivations live. The library ports the
-original MATLAB classes and keeps their interface; the `.m` files ship under
-`pyEDW/matlab/`.
+I(A:E), ΔI, and cooperation C(a₁:a₂‖E). The model and its informational reading
+come from Sowinski et al, *Planet. Sci. J.* **6**, 176 (2025), where the
+derivations live. The library ports the original MATLAB classes and keeps their
+interface; the `.m` files ship under `pyEDW/matlab/`.
 
 ## Installation
 
