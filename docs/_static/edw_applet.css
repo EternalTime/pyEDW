@@ -1,0 +1,170 @@
+/* Exo-Daisy World applet — styled to sit inside the RTD docs page.
+   Light card, Lato/Roboto Slab (already loaded by the theme), biome-green
+   accent (#006600) matching the pyEDW masthead. */
+
+#edw-app {
+    --edw-green: #006600;
+    --edw-blue:  #466eaf;   /* black daisies, as plotted in the paper */
+    --edw-pink:  #f5a9b8;   /* white daisies, as plotted in the paper */
+    --edw-line:  #404040;
+    font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.5em 0;
+    background: #fcfcfc;
+}
+
+#edw-head {
+    background: var(--edw-green);
+    color: #fff;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.92em;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#edw-head .edw-title { flex: 1; }
+
+.edw-hbtn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    padding: 3px 12px;
+    font-family: inherit;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.edw-hbtn:hover { background: rgba(255, 255, 255, 0.3); }
+
+/* The canvas fills the card; the readouts, phase plot and sliders float over it
+   as translucent overlays, so the planet is never cut off by a panel. */
+#edw-stage {
+    position: relative;
+    background: #000;
+    line-height: 0;
+}
+
+#edw-canvas {
+    display: block;
+    width: 100%;
+    height: 320px;
+    background: #000;
+}
+
+.edw-ov {
+    position: absolute;
+    background: rgba(6, 10, 8, 0.42);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 5px;
+    color: #d8d8d8;
+    font-size: 11px;
+    line-height: 1.35;
+    padding: 5px 8px;
+}
+
+/* The readouts and the plot are for looking at, not touching: let drags pass
+   through them to the planet underneath. The sliders, of course, keep theirs. */
+#edw-readouts, #edw-plotwrap { pointer-events: none; }
+
+#edw-readouts {
+    top: 8px;
+    left: 8px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 14px;
+}
+
+.edw-readout {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-variant-numeric: tabular-nums;
+}
+
+.edw-readout .k { color: #8fa08f; }
+.edw-readout .v { font-weight: 700; color: #eef2ee; }
+
+#edw-plotwrap { top: 8px; right: 8px; padding: 4px 5px 2px 2px; }
+#edw-phase { display: block; }
+
+#edw-plotrow { display: flex; align-items: center; }
+
+/* The y-axis label is rotated inside a fixed-width gutter, so the rotation
+   cannot disturb the layout around it. */
+#edw-ylab {
+    width: 15px;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#edw-ylab > span {
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+#edw-ylab, #edw-xlab {
+    color: #8fa08f;
+    font-size: 10px;
+}
+
+#edw-xlab {
+    text-align: center;
+    margin-top: 1px;
+    padding-left: 15px;   /* centre under the plot, not the gutter */
+}
+
+/* MathJax renders into its own container; keep it inline, at our size, and in
+   the overlay's colour rather than the page's body colour. */
+.edw-ov mjx-container {
+    display: inline !important;
+    margin: 0 !important;
+    font-size: 105% !important;
+    color: inherit;
+}
+
+#edw-sliders {
+    bottom: 8px;
+    left: 8px;
+    width: 208px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edw-row label {
+    display: block;
+    color: #a8b8a8;
+    margin-bottom: 1px;
+}
+
+.edw-row label .val {
+    float: right;
+    font-weight: 700;
+    color: #5ad35a;
+    font-variant-numeric: tabular-nums;
+}
+
+.edw-row input[type=range] {
+    display: block;
+    width: 100%;
+    height: 13px;
+    margin: 0;
+    accent-color: #4ecb4e;
+}
+
+@media (max-width: 640px) {
+    #edw-canvas { height: 260px; }
+    #edw-plotwrap { display: none; }
+    #edw-sliders { width: 170px; }
+}
