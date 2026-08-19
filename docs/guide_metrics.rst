@@ -37,8 +37,8 @@ Derived measures
 
 All return one value per luminosity. :func:`~pyEDW.metrics.mutual_information`,
 :func:`~pyEDW.metrics.cooperation`, and
-:func:`~pyEDW.metrics.intra_environment_information` also take a 2-D table of
-shape ``(n_bandwidth, n_lum, 16)`` and broadcast over the leading axis, so a full
+:func:`~pyEDW.metrics.intra_environment_information` also take a table stacked over a
+2-D sweep, shape ``(n_bandwidth, n_lum, 16)``, and broadcast over the leading axis, so a full
 bandwidth :math:`\times` luminosity sweep is a single call.
 
 Interpreting the signs
