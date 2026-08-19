@@ -72,15 +72,24 @@ fig.savefig("fig1.png", dpi=150)
 
 ## Validation
 
-`validate_against_matlab.py` reruns a Python ensemble against a `data_*.mat`
-from the original `eDW_BHsim.m`, comparing the mean temperature, luminosity, and
-viability curves. The pytest suite also checks the SRK1 step bit-for-bit against
-an independent re-derivation of the MATLAB update; it needs the `test` extra:
+The pytest suite checks the SRK1 step bit-for-bit against an independent
+re-derivation of the MATLAB update; it needs the `test` extra:
 
 ```
 source .venv/bin/activate
 pip install -e ".[test]"
 pytest
+```
+
+`validate_against_matlab.py` additionally reruns a Python ensemble against a
+`data_*.mat` from the original `eDW_BHsim.m`, comparing the mean temperature,
+luminosity, and viability curves. This repository does not ship those `.mat`
+files, so the script cannot be run from a clean clone: you must first produce a
+`data_XXX.mat` yourself by running the original MATLAB `eDW_BHsim.m`, then pass
+its path to the script:
+
+```
+python validate_against_matlab.py /path/to/data_064.mat
 ```
 
 ## Documentation
