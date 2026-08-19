@@ -56,9 +56,13 @@ scheduled: each column seeds its own RNG stream with ``seed + column_index``.
 Reproducing the original runs
 -----------------------------
 
-The MATLAB drivers and figure scripts ship under ``pyEDW/matlab/``;
-``validate_against_matlab.py`` checks a Python ensemble against a saved
-``data_*.mat``.
+The MATLAB drivers and figure scripts ship under ``pyEDW/matlab/``, but the
+``data_*.mat`` ensembles they write do not. ``validate_against_matlab.py``
+checks a Python ensemble against one of those files, so it needs a
+``data_XXX.mat`` you produce yourself by running ``eDW_BHsim.m``; the `README's
+Validation section
+<https://github.com/EternalTime/pyEDW/blob/main/README.md#validation>`_ has the
+steps.
 
 References
 ^^^^^^^^^^

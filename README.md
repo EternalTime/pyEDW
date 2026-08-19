@@ -85,11 +85,15 @@ pytest
 `data_*.mat` from the original `eDW_BHsim.m`, comparing the mean temperature,
 luminosity, and viability curves. This repository does not ship those `.mat`
 files, so the script cannot be run from a clean clone: you must first produce a
-`data_XXX.mat` yourself by running the MATLAB driver shipped here at
-`pyEDW/matlab/eDW_BHsim.m`, which writes its output into a `Data/` directory
-relative to the MATLAB working directory (so `Data/data_064.mat`). It does not
-create that directory, so make `Data/` yourself first or the `save` call errors.
-Then pass the resulting path to the script:
+`data_XXX.mat` yourself with the MATLAB driver shipped here at
+`pyEDW/matlab/eDW_BHsim.m`. That driver is written for a SLURM array job - it
+takes its ΔT index from `SLURM_ARRAY_TASK_ID`, and opens a parallel pool sized
+by `SLURM_CPUS_PER_TASK` with job storage under `/local_scratch/$SLURM_JOBID` -
+so off a cluster you have to set those variables, or edit those lines, before it
+will run at all. `XXX` is that index into the driver's 128-point ΔT grid, and
+the output goes to a `Data/` directory relative to the MATLAB working directory
+(index 64 writes `Data/data_064.mat`). The `save` call takes `Data/` as given,
+so create it first. Then pass the resulting path to the script:
 
 ```
 python validate_against_matlab.py /path/to/data_064.mat
