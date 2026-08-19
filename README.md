@@ -87,8 +87,9 @@ luminosity, and viability curves. This repository does not ship those `.mat`
 files, so the script cannot be run from a clean clone: you must first produce a
 `data_XXX.mat` yourself by running the MATLAB driver shipped here at
 `pyEDW/matlab/eDW_BHsim.m`, which writes its output into a `Data/` directory
-relative to the MATLAB working directory (so `Data/data_064.mat`). Then pass
-that path to the script:
+relative to the MATLAB working directory (so `Data/data_064.mat`). It does not
+create that directory, so make `Data/` yourself first or the `save` call errors.
+Then pass the resulting path to the script:
 
 ```
 python validate_against_matlab.py /path/to/data_064.mat
