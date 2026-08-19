@@ -13,15 +13,14 @@ Installation
    python -m pip install --upgrade pip
    pip install -e .
 
-Requires Python 3.8+. ``numpy``, ``scipy``, ``numba``, and ``matplotlib`` are
-installed automatically. The integrator hot loop is JIT-compiled by Numba on
-first call, so the first ``run`` or ``ensemble`` in a session pays a one-time
-compilation cost.
+Requires Python 3.8+; ``numpy``, ``scipy``, ``numba``, and ``matplotlib`` come
+along with it. Numba JIT-compiles the integrator hot loop, so the first ``run``
+or ``ensemble`` in a session pays a one-time cost.
 
 A single planet
 ---------------
 
-Build the parameters, seed a planet, and integrate it forward:
+Seed a planet and integrate it forward:
 
 .. code-block:: python
 
@@ -41,9 +40,8 @@ Pass ``record=True`` to keep the whole trajectory:
 An ensemble over luminosity
 ---------------------------
 
-The paper's experiments sweep the mean stellar luminosity and run many
-independent instances per luminosity. :meth:`~pyEDW.model.ExoDaisyWorld.ensemble`
-does this in parallel:
+The paper sweeps the mean stellar luminosity with many independent instances at
+each. :meth:`~pyEDW.model.ExoDaisyWorld.ensemble` does this in parallel:
 
 .. code-block:: python
 
@@ -51,8 +49,8 @@ does this in parallel:
    bio = ExoDaisyWorld.ensemble(p, Ls=Ls, nsteps=2000, N=500, seed=1)
    # bio.shape == (400, 500, 4)
 
-Set ``agent_free=True`` to seed both daisy fractions at zero and integrate the
-bare planet, the reference used for the agent-induced correlation change
+``agent_free=True`` seeds both daisy fractions at zero and integrates the bare
+planet, the reference for the agent-induced correlation change
 :math:`\Delta I`.
 
 Reading the information architecture
@@ -72,14 +70,13 @@ Reading the information architecture
    dI  = metrics.delta_I(H, He)
    C   = metrics.cooperation(H)
 
-See :doc:`guide_metrics` for what each measure means and :doc:`theory` for the
-equations behind them.
+See :doc:`guide_metrics` for what each measure means, and :doc:`theory` for the
+equations.
 
 Running the tests
 -----------------
 
-The test suite needs ``pytest``, which ships in the ``test`` extra. From the
-clone, with the environment created above activated:
+The suite needs ``pytest``, which ships in the ``test`` extra:
 
 .. code-block:: bash
 
@@ -90,9 +87,7 @@ clone, with the environment created above activated:
 Building the documentation
 --------------------------
 
-This site is built with Sphinx from ``docs/``. The ``docs`` extra pulls in
-Sphinx, the Read the Docs theme, and ``sphinxcontrib-bibtex`` for the
-bibliography:
+Sphinx builds this site from ``docs/``, using the ``docs`` extra:
 
 .. code-block:: bash
 
@@ -101,4 +96,4 @@ bibliography:
    cd docs
    make html
 
-The rendered HTML lands in ``docs/_build/html``.
+The HTML lands in ``docs/_build/html``.
