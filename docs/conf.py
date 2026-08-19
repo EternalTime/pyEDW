@@ -62,6 +62,9 @@ pybtex.plugin.register_plugin(
 )
 bibtex_default_style = "linkedtitle"
 
+copybutton_prompt_text = r'>>> '
+copybutton_prompt_is_regexp = True
+
 napoleon_numpy_docstring = True
 napoleon_google_docstring = False
 
