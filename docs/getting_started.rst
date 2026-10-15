@@ -97,3 +97,5 @@ Sphinx builds this site from ``docs/``, using the ``docs`` extra:
    make html
 
 The HTML lands in ``docs/_build/html``.
+Any Sphinx warning fails the build, locally and in CI.
+To get a lenient build while drafting, run ``make html SPHINXOPTS=``.
