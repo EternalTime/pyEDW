@@ -1,4 +1,4 @@
-/* Exo-Daisy World — interactive applet for the pyEDW documentation.
+/* Exo-Daisy World - interactive applet for the pyEDW documentation.
  *
  * The physics is a direct port of pyEDW/model.py: the same dimensionless
  * 4-dof state x = [f_B, f_W, T, L], the same equations of motion (Eqs. B8-B12),
@@ -51,7 +51,7 @@
      * daisy temperature T_a = base^(1/4). When base < 0 the fourth root is
      * complex; MATLAB carries it and takes the real part of the increment, so
      * we return Re(w) from the principal branch. The window is clamped to
-     * [0, 1] — a growth rate cannot exceed gamma_G, and the complex branch can
+     * [0, 1] - a growth rate cannot exceed gamma_G, and the complex branch can
      * otherwise blow up in a live simulation. */
     function growthRe(base, alpha) {
         let w;
@@ -428,12 +428,12 @@
         <canvas id="edw-canvas"></canvas>
 
         <div id="edw-readouts" class="edw-ov">
-          <div class="edw-readout"><span class="k">\\(f_B\\)</span><span class="v" id="edw-fb">—</span></div>
-          <div class="edw-readout"><span class="k">\\(T/T_{opt}\\)</span><span class="v" id="edw-T">—</span></div>
-          <div class="edw-readout"><span class="k">\\(f_W\\)</span><span class="v" id="edw-fw">—</span></div>
-          <div class="edw-readout"><span class="k">\\(L/L_{opt}\\)</span><span class="v" id="edw-L">—</span></div>
-          <div class="edw-readout"><span class="k">\\(A\\)</span><span class="v" id="edw-A">—</span></div>
-          <div class="edw-readout"><span class="k">\\(V\\)</span><span class="v" id="edw-V">—</span></div>
+          <div class="edw-readout"><span class="k">\\(f_B\\)</span><span class="v" id="edw-fb">-</span></div>
+          <div class="edw-readout"><span class="k">\\(T/T_{opt}\\)</span><span class="v" id="edw-T">-</span></div>
+          <div class="edw-readout"><span class="k">\\(f_W\\)</span><span class="v" id="edw-fw">-</span></div>
+          <div class="edw-readout"><span class="k">\\(L/L_{opt}\\)</span><span class="v" id="edw-L">-</span></div>
+          <div class="edw-readout"><span class="k">\\(A\\)</span><span class="v" id="edw-A">-</span></div>
+          <div class="edw-readout"><span class="k">\\(V\\)</span><span class="v" id="edw-V">-</span></div>
         </div>
 
         <div id="edw-plotwrap" class="edw-ov">
