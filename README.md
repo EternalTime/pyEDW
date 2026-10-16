@@ -103,14 +103,7 @@ python validate_against_matlab.py /path/to/data_064.mat
 
 Documentation lives at <https://damiansowinski.com/pyEDW/>; its
 [Getting started](https://damiansowinski.com/pyEDW/getting_started.html) page is
-the authority on installation. To build it locally:
-
-```
-source .venv/bin/activate
-pip install -e ".[docs]"
-cd docs
-make html
-```
+the authority on installation.
 
 ## License
 
