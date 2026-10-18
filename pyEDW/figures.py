@@ -6,13 +6,13 @@ table) and returns a Matplotlib ``(fig, axes)`` pair, so the caller controls
 saving and styling. Colors follow the paper: white daisies in pink, black
 daisies in blue, temperature in green.
 
-- :func:`ensemble_scatter`   -- Fig. 1: daisy fractions, albedo, and
+- :func:`ensemble_scatter`   - Fig. 1: daisy fractions, albedo, and
   temperature scattered over luminosity for one growth-rate bandwidth.
-- :func:`corner`             -- Fig. 2: pairwise joint distribution of the four
+- :func:`corner`             - Fig. 2: pairwise joint distribution of the four
   dof at a single luminosity.
-- :func:`cooperation_vs_deltaI` -- Fig. 4: cooperation against the
+- :func:`cooperation_vs_deltaI` - Fig. 4: cooperation against the
   agent-induced correlation change, split by viability.
-- :func:`information_vs_viability` -- Fig. 5: I(A:E) against viability.
+- :func:`information_vs_viability` - Fig. 5: I(A:E) against viability.
 """
 
 import numpy as np
@@ -35,7 +35,7 @@ def albedo(data, params):
 
 
 def ensemble_scatter(data, params, Ls=None, s=3, alpha=0.05):
-    """Fig. 1: one bandwidth column -- fractions, albedo, temperature vs L.
+    """Fig. 1 (one bandwidth column): fractions, albedo, temperature vs L.
 
     Parameters
     ----------

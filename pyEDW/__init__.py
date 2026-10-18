@@ -1,4 +1,4 @@
-"""pyEDW -- Exo-Daisy World.
+"""pyEDW - Exo-Daisy World.
 
 A Python port of the MATLAB Exo-Daisy World (eDW) model: a stochastic
 generalization of Watson & Lovelock's Daisy World tailored to M-dwarf
@@ -14,12 +14,12 @@ thermal-equilibrium constraint of the classic model.
 
 Vertical slice
 --------------
-- :class:`~pyEDW.model.Parameters` -- physical parameters and the dimensionless
+- :class:`~pyEDW.model.Parameters` - physical parameters and the dimensionless
   ``theta`` vector.
-- :class:`~pyEDW.model.ExoDaisyWorld` -- the coupled agent+environment SDE,
+- :class:`~pyEDW.model.ExoDaisyWorld` - the coupled agent+environment SDE,
   integrated with a strong-order-1 stochastic Runge-Kutta step (ports
   ``updateExoDaisyWorld.m``).
-- :mod:`~pyEDW.metrics` -- viability, efficacy, and the information measures
+- :mod:`~pyEDW.metrics` - viability, efficacy, and the information measures
   I(A:E), delta I, and cooperation C(a1:a2||E).
 
 Reference: D. R. Sowinski, G. Ghoshal & A. Frank, "Exo-Daisy World:

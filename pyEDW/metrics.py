@@ -2,15 +2,15 @@
 
 This module ports the entropy pipeline of ``Daisy_World_Paper_Figures.m``
 (lines 307-392) and the measure assembly of ``makeFIG4.m`` / ``makeFig5.m``.
-Given an endpoint ensemble ``data`` of shape ``(n_lum, N, 4)`` -- the output
-of :meth:`pyEDW.model.ExoDaisyWorld.ensemble` -- it estimates, at each
+Given an endpoint ensemble ``data`` of shape ``(n_lum, N, 4)`` - the output
+of :meth:`pyEDW.model.ExoDaisyWorld.ensemble` - it estimates, at each
 luminosity, the joint distribution ``p_AE(f_B, f_W, T, L)`` by histogramming
 and reads off the Shannon information measures of Section 4.
 
 Binning follows the paper's square-root rule: with ``n`` living instances the
 number of bins is ``N_bins = 1 + ceil(sqrt(n))`` and each variable is split by
 ``N_bins - 1`` equally spaced interior edges spanning its observed range, so a
-value lands in bin ``sum(v > edges)`` (0-indexed) -- exactly the MATLAB
+value lands in bin ``sum(v > edges)`` (0-indexed), exactly the MATLAB
 ``1 + sum(v > x)`` up to the index base.
 
 Entropy table
